@@ -1,5 +1,5 @@
 const OpenAI = require('openai');
-const ElevenLabs = require('elevenlabs');
+// const ElevenLabs = require('elevenlabs');
 
 class AIService {
   constructor() {
@@ -7,9 +7,10 @@ class AIService {
       apiKey: process.env.OPENAI_API_KEY
     });
     
-    this.elevenLabs = new ElevenLabs({
-      apiKey: process.env.ELEVENLABS_API_KEY
-    });
+    // Temporarily disable ElevenLabs for deployment
+    // this.elevenLabs = new ElevenLabs({
+    //   apiKey: process.env.ELEVENLABS_VOICE_ID
+    // });
   }
 
   // ChatGPT API for conversation and scoring
@@ -33,24 +34,29 @@ class AIService {
     }
   }
 
-  // ElevenLabs TTS
+  // ElevenLabs TTS - Temporarily disabled for deployment
   async textToSpeech(text, voiceId = null) {
     try {
-      const voice = voiceId || process.env.ELEVENLABS_VOICE_ID;
-      const stability = parseFloat(process.env.ELEVENLABS_STABILITY) || 0.5;
-      const similarityBoost = parseFloat(process.env.ELEVENLABS_SIMILARITY_BOOST) || 0.75;
+      // Temporarily return a placeholder for deployment
+      console.log('TTS requested:', text);
+      return Buffer.from('TTS temporarily disabled');
+      
+      // TODO: Re-enable when ElevenLabs package is properly configured
+      // const voice = voiceId || process.env.ELEVENLABS_VOICE_ID;
+      // const stability = parseFloat(process.env.ELEVENLABS_STABILITY) || 0.5;
+      // const similarityBoost = parseFloat(process.env.ELEVENLABS_SIMILARITY_BOOST) || 0.75;
 
-      const audioBuffer = await this.elevenLabs.textToSpeech({
-        text,
-        voice,
-        model: 'eleven_monolingual_v1',
-        voice_settings: {
-          stability,
-          similarity_boost: similarityBoost
-        }
-      });
+      // const audioBuffer = await this.elevenLabs.textToSpeech({
+      //   text,
+      //   voice,
+      //   model: 'eleven_monolingual_v1',
+      //   voice_settings: {
+      //   stability,
+      //   similarity_boost: similarityBoost
+      //   }
+      // });
 
-      return audioBuffer;
+      // return audioBuffer;
     } catch (error) {
       console.error('ElevenLabs TTS error:', error);
       throw new Error('Failed to generate speech');
