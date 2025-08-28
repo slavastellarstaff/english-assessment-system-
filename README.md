@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # English Assessment System
 
 An AI-powered English proficiency assessment system that conducts voice-led tests in under 5 minutes, providing CEFR-style scoring with detailed sub-scores.
@@ -111,3 +112,7 @@ Key configuration options in `.env`:
 ## License
 
 MIT License
+=======
+# english-assessment-system-
+AI-powered English proficiency assessment system with voice interaction
+>>>>>>> 3dbc6bcf72bd7b9c3a339c540d071318d420b021
