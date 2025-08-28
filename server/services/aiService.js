@@ -1,5 +1,5 @@
 const OpenAI = require('openai');
-const { ElevenLabs } = require('elevenlabs');
+const ElevenLabs = require('elevenlabs');
 
 class AIService {
   constructor() {
